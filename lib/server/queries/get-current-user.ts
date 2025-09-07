@@ -3,12 +3,16 @@ import { UserInfo } from "@/lib/types/user";
 import { cookies } from "next/headers";
 
 export async function getCurrentUser() {
+  const cookiesValue = (await cookies()).get("jwt")?.value;
+  if (!cookiesValue) {
+    return null;
+  }
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/current-user`,
       {
         headers: {
-          Cookie: `jwt=${(await cookies()).get("jwt")?.value}`, // i make this because we cant send cookies from server to server so i send it.
+          Cookie: `jwt=${cookiesValue}`, // i make this because we cant send cookies from server to server so i send it.
         },
       }
     );

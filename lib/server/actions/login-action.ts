@@ -25,6 +25,7 @@ function getTokenExpiry(token: string): number | null {
     const decoded = JSON.parse(atob(payloadBase64));
     return decoded.exp ? decoded.exp * 1000 : null; // convert to ms
   } catch (e) {
+    console.log(e);
     return null;
   }
 }

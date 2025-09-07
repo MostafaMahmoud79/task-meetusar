@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, ABeeZee } from "next/font/google";
+import { ABeeZee } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist",
-  weight: ["400"],
-  subsets: ["latin"],
-});
+
 const abeezee = ABeeZee({
   variable: "--font-abeezee",
   weight: ["400"],
