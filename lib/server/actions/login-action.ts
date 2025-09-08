@@ -76,6 +76,7 @@ export async function loginAction(inputs: LoginFormInputs): ActionResponse {
       expires: new Date(expiryMs),
       httpOnly: true,
       secure: true,
+      sameSite: "lax"
     });
     console.dir({ responseData }, { depth: null });
     return {
